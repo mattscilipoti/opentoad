@@ -1,0 +1,42 @@
+<h1>Listing errors</h1>
+
+<table>
+  <tr>
+    <th>Controller</th>
+    <th>Action</th>
+    <th>Exception type</th>
+    <th>Message</th>
+    <th>Url</th>
+    <th>Request type</th>
+    <th>Stack trace</th>
+    <th>Env vars</th>
+    <th>Session</th>
+    <th>Params</th>
+    <th>Hostname</th>
+    <th>Pid</th>
+  </tr>
+
+<% @error_groups.each do |error| %>
+  <tr class="error_row">
+    <td><%=h error.controller %></td>
+    <td><%=h error.action %></td>
+    <td><%=h error.exception_type %></td>
+    <td><%=h error.message %></td>
+    <td><%=h error.url %></td>
+    <td><%=h error.request_type %></td>
+    <td><%=h error.stack_trace %></td>
+    <td><%=h error.env_vars %></td>
+    <td><%=h error.session %></td>
+    <td><%=h error.params %></td>
+    <td><%=h error.hostname %></td>
+    <td><%=h error.pid %></td>
+    <td><%= link_to 'Show', error %></td>
+    <td><%= link_to 'Edit', edit_error_path(error) %></td>
+    <td><%= link_to 'Destroy', error, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New error', new_error_path %>
