@@ -22,13 +22,29 @@ describe ErrorReport do
     @it.location.should eql(@it.error_group.location)
   end
 
-  it "should reuse an existing matching ErrorGroup" do
-    second_report = ErrorReport.create!(
-      :message  => "Foo: bar",
-      :location => "FooController#bar_action",
-      :time     => DateTime.parse("Feb 14 2003")
-    )
-    @it.error_group.should == second_report.error_group
+  it "should increment the counter cache" do
+    @it.error_group.reload # why doesn't rails do this for us?
+    @it.error_group.count.should == 1
+  end
+
+  context "with a second matching report" do
+    before do
+      @second_report = ErrorReport.create!(
+        :message  => "Foo: bar",
+        :location => "FooController#bar_action",
+        :time     => DateTime.parse("Feb 14 2003")
+      )
+    end
+
+    it "should reuse an existing matching ErrorGroup" do
+      @it.error_group.should == @second_report.error_group
+    end
+
+    it "should increment the counter" do
+      @it.error_group.reload # why doesn't rails do this for us?
+      @it.error_group.count.should == 2
+    end
+
   end
 
   # see ErrorGroup spec for details related to time and count
