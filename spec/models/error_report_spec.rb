@@ -27,6 +27,11 @@ describe ErrorReport do
     @it.error_group.count.should == 1
   end
 
+  it "should update error group's latest report time" do
+    @it.error_group.reload
+    @it.error_group.latest.should == @it.time
+  end
+
   context "with a second matching report" do
     before do
       @second_report = ErrorReport.create!(
@@ -45,8 +50,27 @@ describe ErrorReport do
       @it.error_group.count.should == 2
     end
 
-  end
+    it "should update error group's latest report time" do
+      @it.error_group.reload
+      @it.error_group.latest.should == @second_report.time
+    end
 
-  # see ErrorGroup spec for details related to time and count
+    context "with a post-dated (earlier report)" do
+      before do
+        @third_report = ErrorReport.create!(
+          :message  => "Foo: bar",
+          :location => "FooController#bar_action",
+          :time     => DateTime.parse("Sep 11 2001")
+        )
+      end
+
+      it "should not update error group's latest report time" do
+        @it.error_group.reload
+        @it.error_group.latest.should == @second_report.time
+      end
+
+    end
+
+  end
 
 end

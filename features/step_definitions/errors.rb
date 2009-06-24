@@ -11,7 +11,7 @@ Then /^I should see the following error groups listed:$/ do |table|
     response.should have_tag('td.error_message',  row["message"])
     response.should have_tag('td.error_location', row["location"])
     response.should have_tag('td.error_count',    row["count"])
-    #response.should have_tag('td.error_latest',   row["latest"])
+    response.should have_tag('td.error_latest',   row["latest"])
   end
 end
 

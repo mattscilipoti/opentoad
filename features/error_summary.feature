@@ -20,6 +20,6 @@ Feature: Error Summary page
     Then I should see the following error groups listed:
       | message            | location | latest            | count |
       | ArgumentError: foo | foo#bar  | 10 days ago       | 2     |
-      | ArgumentError: foo | baz#bar  | about 1 year ago  | 1     |
-      | OtherError: foo    | foo#bar  | 13 minutes ago    | 1     |
+      | ArgumentError: foo | baz#bar  | over 2 years ago  | 1     |
+      | OtherError: foo    | foo#bar  | 23 minutes ago    | 1     |
       | ThirdError: baz    | foo#bar  | about 1 month ago | 5     |
