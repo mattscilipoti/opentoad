@@ -9,15 +9,13 @@
   </tr>
 
 <% @error_groups.each do |error_group| %>
-  <tr class="error_row">
-    <td><%=h error_group.message %></td>
-    <td><%=h error_group.location %></td>
-    <td><%=h error_group.latest.to_s(:long) %></td>
-    <td><%=h error_group.count %></td>
+  <tr class="error_group_row">
+    <td class="error_message"><%=h error_group.message %></td>
+    <td class="error_location"><%=h error_group.location %></td>
+    <td class="error_latest"><%=h relative_time(error_group.latest) %></td>
+    <td class="error_count"><%=h error_group.count %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New error_group', new_error_group_path %>
