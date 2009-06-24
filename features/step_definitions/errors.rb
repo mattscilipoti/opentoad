@@ -1,10 +1,6 @@
-Given /^the following errors exist:$/ do |table|
-  mapped_table = table.map_headers(
-    'type' => :exception_type,
-    'msg'  => :message
-  )
-  mapped_table.hashes.each do |errors_params|
-    Error.create! errors_params
+Given /^the following error reports exist:$/ do |table|
+  table.hashes.each do |errors_params|
+    ErrorReport.create! errors_params
   end
 end
 
