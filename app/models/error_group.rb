@@ -10,4 +10,9 @@ class ErrorGroup < ActiveRecord::Base
     )
   end
 
+  # TODO: base this off of latest (unless nil)
+  def latest_occurance_text
+    "Unknown"
+  end
+
 end

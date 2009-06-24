@@ -12,12 +12,10 @@
   <tr class="error_row">
     <td><%=h error_group.message %></td>
     <td><%=h error_group.location %></td>
-    <td><%=h error_group.latest.to_s(:long) %></td>
+    <td><%=h error_group.latest_occurance_text %></td>
     <td><%=h error_group.count %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New error_group', new_error_group_path %>
