@@ -12,15 +12,15 @@
 ActiveRecord::Schema.define(:version => 20090624134618) do
 
   create_table "error_groups", :force => true do |t|
-    t.string   "location"
-    t.string   "message"
-    t.integer  "count"
+    t.string   "location",                :null => false
+    t.string   "message",                 :null => false
+    t.integer  "count",    :default => 0, :null => false
     t.datetime "latest"
   end
 
   create_table "error_reports", :force => true do |t|
-    t.integer  "error_group_id"
-    t.datetime "time"
+    t.integer  "error_group_id", :null => false
+    t.datetime "time",           :null => false
   end
 
 end
