@@ -8,12 +8,9 @@ class ErrorReport < ActiveRecord::Base
 
   private
   def assign_error_group
-    self.error_group = ErrorGroup.find_by_message_and_location(
+    self.error_group = ErrorGroup.for_message_and_location(
       @message,
       @location
-    ) || ErrorGroup.create!(
-      :message  => @message,
-      :location => @location
     )
   end
 
