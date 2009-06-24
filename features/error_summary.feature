@@ -15,10 +15,11 @@ Feature: Error Summary page
       | ThirdError: baz    | foo#bar  | 2009 Mar  7 18:36 |
       | ThirdError: baz    | foo#bar  | 2009 Apr 13  6:03 |
       | ThirdError: baz    | foo#bar  | 2009 May  8  5:54 |
+    And the current time is 2009 Jun 15 15:00
     When I go to the homepage
     Then I should see the following errors listed:
-      | message            | location | count |
-      | ArgumentError: foo | foo#bar  | 2     |
-      | ArgumentError: foo | baz#bar  | 1     |
-      | OtherError: foo    | foo#bar  | 1     |
-      | ThirdError: baz    | foo#bar  | 5     |
+      | message            | location | count | latest            |
+      | ArgumentError: foo | foo#bar  | 2     | 10 days ago       |
+      | ArgumentError: foo | baz#bar  | 1     | about 1 year ago  |
+      | OtherError: foo    | foo#bar  | 1     | 13 minutes ago    |
+      | ThirdError: baz    | foo#bar  | 5     | about 1 month ago |

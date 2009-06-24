@@ -15,3 +15,7 @@ end
 
 require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'
+
+Before do
+  ApplicationClock.return_to_normal_time
+end
