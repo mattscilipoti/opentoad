@@ -13,6 +13,10 @@ Spec::Runner.configure do |config|
   config.use_instantiated_fixtures  = false
   config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
 
+  config.before do
+    ApplicationClock.return_to_normal_time
+  end
+
   # == Fixtures
   #
   # You can declare fixtures for each example_group like this:

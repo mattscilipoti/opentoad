@@ -4,10 +4,15 @@ Given /^the following error reports exist:$/ do |table|
   end
 end
 
-Then /^I should see the following errors listed:$/ do |table|
+Then /^I should see the following error groups listed:$/ do |table|
   rows = table.hashes
-  response.should have_tag('tr.error_row', rows.length)
-  pending
+  response.should have_tag('tr.error_group_row', rows.length)
+  rows.each do |row|
+    response.should have_tag('td.error_message',  row["message"])
+    response.should have_tag('td.error_location', row["location"])
+    response.should have_tag('td.error_latest',   row["latest"])
+    response.should have_tag('td.error_count',    row["count"])
+  end
 end
 
 

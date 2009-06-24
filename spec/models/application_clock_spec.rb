@@ -3,8 +3,8 @@ require File.expand_path('../spec_helper', File.dirname(__FILE__))
 describe ApplicationClock do
 
   share_examples_for "normal proxy ApplicationClock" do
-    it "should forward on to DateTime.now" do
-      DateTime.should_receive(:now).and_return(:mock_response)
+    it "should forward on to Time.now" do
+      Time.should_receive(:now).and_return(:mock_response)
       ApplicationClock.now.should == :mock_response
     end
   end
@@ -14,8 +14,8 @@ describe ApplicationClock do
   end
 
   context "when frozen" do
-    it "should always respond with the same DateTime" do
-      date = DateTime.parse("1999 Dec 31")
+    it "should always respond with the same Time" do
+      date = Time.parse("1999 Dec 31")
       ApplicationClock.freeze_at date
       ApplicationClock.now.should == date
     end
