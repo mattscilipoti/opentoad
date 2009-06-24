@@ -1,4 +1,7 @@
 Feature: Error Summary page
+  In order to keep track of my myriad bugs which occur in the wild
+  As a application maintainer
+  I want a simple summary view of errors raised by my application
 
   Scenario: Errors are grouped by error message and location
     Given the following errors exist:

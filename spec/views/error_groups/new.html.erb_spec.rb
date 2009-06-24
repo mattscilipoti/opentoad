@@ -1,8 +1,11 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 
-describe "Managing Errors" do
+describe "/error_groups/new.html.erb" do
+  include ErrorGroupsHelper
+
   before(:each) do
-    @valid_attributes = {
+    assigns[:error_group] = stub_model(ErrorGroup,
+      :new_record? => true,
       :controller => "value for controller",
       :action => "value for action",
       :exception_type => "value for exception_type",
@@ -15,14 +18,11 @@ describe "Managing Errors" do
       :params => "value for params",
       :hostname => "value for hostname",
       :pid => 1
-    }
+    )
   end
 
-  describe "viewing index" do
-    it "lists all Errors" do
-      error = Error.create!(@valid_attributes)
-      visit errors_path
-      response.should have_selector("a", :href => error_path(error))
-    end
+  it "renders new error form" do
+    render
+
   end
 end

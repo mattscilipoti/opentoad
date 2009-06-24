@@ -1,6 +1,6 @@
 <h1>New error</h1>
 
-<% form_for(@error) do |f| %>
+<% form_for(@error_group) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -56,4 +56,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', errors_path %>
+<%= link_to 'Back', error_groups_path %>

@@ -1,0 +1,63 @@
+<p>
+  <b>Controller:</b>
+  <%=h @error_group.controller %>
+</p>
+
+<p>
+  <b>Action:</b>
+  <%=h @error_group.action %>
+</p>
+
+<p>
+  <b>Exception type:</b>
+  <%=h @error_group.exception_type %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%=h @error_group.message %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @error_group.url %>
+</p>
+
+<p>
+  <b>Request type:</b>
+  <%=h @error_group.request_type %>
+</p>
+
+<p>
+  <b>Stack trace:</b>
+  <%=h @error_group.stack_trace %>
+</p>
+
+<p>
+  <b>Env vars:</b>
+  <%=h @error_group.env_vars %>
+</p>
+
+<p>
+  <b>Session:</b>
+  <%=h @error_group.session %>
+</p>
+
+<p>
+  <b>Params:</b>
+  <%=h @error_group.params %>
+</p>
+
+<p>
+  <b>Hostname:</b>
+  <%=h @error_group.hostname %>
+</p>
+
+<p>
+  <b>Pid:</b>
+  <%=h @error_group.pid %>
+</p>
+
+
+<%= link_to 'Edit', edit_error_group_path(@error_group) %> |
+<%= link_to 'Back', error_groups_path %>

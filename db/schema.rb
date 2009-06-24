@@ -9,23 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090529001548) do
+ActiveRecord::Schema.define(:version => 20090624005134) do
 
-  create_table "errors", :force => true do |t|
-    t.string   "controller"
-    t.string   "action"
-    t.string   "exception_type"
+  create_table "error_groups", :force => true do |t|
+    t.string   "location"
     t.string   "message"
-    t.string   "url"
-    t.string   "request_type"
-    t.text     "stack_trace"
-    t.text     "env_vars"
-    t.text     "session"
-    t.text     "params"
-    t.string   "hostname"
-    t.integer  "pid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "count"
+    t.datetime "latest"
   end
 
 end

@@ -1,9 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 
-describe "/errors/show.html.erb" do
-  include ErrorsHelper
+describe "/error_groups/show.html.erb" do
+  include ErrorGroupsHelper
   before(:each) do
-    assigns[:error] = @error = stub_model(Error,
+    assigns[:error_group] = @error = stub_model(ErrorGroup,
       :controller => "value for controller",
       :action => "value for action",
       :exception_type => "value for exception_type",

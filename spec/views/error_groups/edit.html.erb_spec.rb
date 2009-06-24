@@ -1,8 +1,11 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 
-describe Error do
+describe "/error_groups/edit.html.erb" do
+  include ErrorGroupsHelper
+
   before(:each) do
-    @valid_attributes = {
+    assigns[:error_group] = @error = stub_model(ErrorGroup,
+      :new_record? => false,
       :controller => "value for controller",
       :action => "value for action",
       :exception_type => "value for exception_type",
@@ -15,10 +18,7 @@ describe Error do
       :params => "value for params",
       :hostname => "value for hostname",
       :pid => 1
-    }
+    )
   end
 
-  it "should create a new instance given valid attributes" do
-    Error.create!(@valid_attributes)
-  end
 end
