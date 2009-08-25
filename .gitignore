@@ -1,0 +1,19 @@
+#Rails
+log/*.log
+tmp/**/*
+config/database.yml
+
+#Rails Sqlite files
+db/*.sqlite?
+db/*.db
+
+#IDE configs
+.idea
+*.swp
+
+#scm
+.svn
+
+#Apple/Mac
+.DS_Store
+
